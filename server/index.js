@@ -28,7 +28,10 @@ const PORT = process.env.PORT || 9000;
 mongoose
   .connect(process.env.MONGO_URL).then(async () => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`))
-    await mongoose.connection.db.dropDatabase();
-    KPI.insertMany(kpis)
+    
+    // Add Data, One time only
+    // await mongoose.connection.db.dropDatabase();
+    // KPI.insertMany(kpis)
+    
   })
   .catch((error) => console.log(`${error} did not connect`))
